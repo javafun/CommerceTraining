@@ -1,31 +1,16 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Web.Mvc;
+﻿using CommerceTraining.Models.Pages;
 using EPiServer;
-using EPiServer.Core;
-using EPiServer.Framework.DataAnnotations;
-using EPiServer.Web.Mvc;
-using CommerceTraining.Models.Pages;
-using Mediachase.Commerce.Orders.Dto;
-using Mediachase.Commerce.Orders.Managers;
-using Mediachase.Commerce;
-using Mediachase.Commerce.Website.Helpers;
-using Mediachase.Commerce.Orders;
-using Mediachase.Commerce.Engine;
-using System;
-using EPiServer.Security;
-using Mediachase.Commerce.Customers;
-using EPiServer.ServiceLocation;
-using CommerceTraining.Models.ViewModels;
-using EPiServer.Commerce.Order;
 using EPiServer.Commerce.Marketing;
-using Mediachase.Data.Provider;
-
+using EPiServer.Commerce.Order;
+using EPiServer.Core;
+using EPiServer.Security;
+using EPiServer.Web.Mvc;
+using Mediachase.Commerce;
+using Mediachase.Commerce.Customers;
 // for the extension-method
 using Mediachase.Commerce.Security;
-using EPiServer.Commerce.Order.Calculator;
-using Mediachase.Commerce.InventoryService;
-using Mediachase.Commerce.Inventory;
+using System;
+using System.Web.Mvc;
 
 namespace CommerceTraining.Controllers
 {
@@ -139,7 +124,7 @@ namespace CommerceTraining.Controllers
             cart.UpdateInventoryOrRemoveLineItems((item, issue) =>
                 validationMessages += CreateValidationMessages(item, issue), _inventoryProcessor);
 
-            return validationMessages; 
+            return validationMessages;
         }
 
         private static string CreateValidationMessages(ILineItem item, ValidationIssue issue)
@@ -159,7 +144,7 @@ namespace CommerceTraining.Controllers
 
             if (CustomerContext.Current.CurrentContact == null)
             {
-                
+
             }
             else
             {

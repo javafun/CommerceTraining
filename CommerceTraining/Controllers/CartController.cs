@@ -1,33 +1,20 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Web.Mvc;
+﻿using CommerceTraining.Models.Pages;
 using EPiServer;
-using EPiServer.Core;
-using EPiServer.Framework.DataAnnotations;
-using EPiServer.Web.Mvc;
-using CommerceTraining.Models.Pages;
-using Mediachase.Commerce.Website.Helpers;
-using Mediachase.Commerce.Orders;
-using Mediachase.Commerce;
-using Mediachase.Commerce.Orders.Managers;
-using Mediachase.Commerce.Engine;
-using CommerceTraining.Models.ViewModels;
-using Mediachase.Commerce.Catalog.Objects;
-using Mediachase.Commerce.Catalog;
-using EPiServer.Commerce.Catalog.ContentTypes;
-using EPiServer.ServiceLocation;
-using EPiServer.Commerce.Order;
 using EPiServer.Commerce.Marketing;
-using System;
+using EPiServer.Commerce.Order;
+using EPiServer.Core;
 using EPiServer.Security;
+using EPiServer.Web.Mvc;
 using Mediachase.Commerce.Customers;
 using Mediachase.Commerce.Security;
+using System;
+using System.Web.Mvc;
 
 namespace CommerceTraining.Controllers
 {
     public class CartController : PageController<CartPage>
     {
-        
+
         private const string DefaultCartName = "Default";
 
         private readonly IOrderRepository _orderRepository;
@@ -77,7 +64,7 @@ namespace CommerceTraining.Controllers
             ContentReference theRef = home.Settings.checkoutPage;
             string passingValue = "Coding is fun"; // could pass something of the cart instead
 
-            return RedirectToAction("Index", new { node = theRef, passedAlong = passingValue }); 
+            return RedirectToAction("Index", new { node = theRef, passedAlong = passingValue });
         }
 
         private string ValidateCart(ICart cart)
