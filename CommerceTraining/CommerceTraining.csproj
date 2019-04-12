@@ -372,6 +372,8 @@
     <Compile Include="Models\Blocks\IHasSettingsBlock.cs" />
     <Compile Include="Models\Blocks\SettingsBlock.cs" />
     <Compile Include="Models\Catalog\FashionNode.cs" />
+    <Compile Include="Models\Catalog\ShirtBundle.cs" />
+    <Compile Include="Models\Catalog\ShirtPackage.cs" />
     <Compile Include="Models\Catalog\ShirtProduct.cs" />
     <Compile Include="Models\Catalog\ShirtVariation.cs" />
     <Compile Include="Models\Media\ImageModel.cs" />
