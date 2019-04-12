@@ -356,10 +356,14 @@
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\CatalogControllerBase.cs" />
     <Compile Include="Controllers\CheckOutController.cs" />
+    <Compile Include="Controllers\FashionNodeController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\StartPageController.cs" />
+    <Compile Include="Controllers\VariationsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -367,6 +371,9 @@
     <Compile Include="Infrastructure\StructureMapDependencyResolver.cs" />
     <Compile Include="Models\Blocks\IHasSettingsBlock.cs" />
     <Compile Include="Models\Blocks\SettingsBlock.cs" />
+    <Compile Include="Models\Catalog\FashionNode.cs" />
+    <Compile Include="Models\Catalog\ShirtProduct.cs" />
+    <Compile Include="Models\Catalog\ShirtVariation.cs" />
     <Compile Include="Models\Media\ImageModel.cs" />
     <Compile Include="Models\Pages\AccountPage.cs" />
     <Compile Include="Models\Pages\CartPage.cs" />
@@ -443,6 +450,9 @@
     <Content Include="Views\Shared\Navigation.cshtml" />
     <Content Include="Views\StartPage\Index.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\FashionNode\Index.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Variations\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
