@@ -1,4 +1,5 @@
 ﻿using CommerceTraining.Models.Pages;
+using CommerceTraining.Models.ViewModels;
 using EPiServer;
 using EPiServer.Commerce.Marketing;
 using EPiServer.Commerce.Order;
@@ -51,10 +52,32 @@ namespace CommerceTraining.Controllers
         {
             // ToDo: (lab D2)
 
+            var cart = _orderRepository.LoadOrCreateCart<ICart>(PrincipalInfo.CurrentPrincipal.GetContactId(), DefaultCartName);
 
+            if(cart == null)
+            {
+                return View("NoCart");
+            }
+            else
+            {
+                string warningMessages = ValidateCart(cart);
 
-            // The below is a dummy, remove when lab D2 is done
-            return null;
+                if (string.IsNullOrWhiteSpace(warningMessages))
+                {
+                    warningMessages = "No messages";
+                }
+
+                var model = new CartViewModel
+                {
+                    LineItems = cart.GetAllLineItems(),
+                    SubTotal = cart.GetSubTotal(),
+                    WarningMessage = warningMessages
+                };
+
+                _orderRepository.Save(cart);
+
+                return View(model);
+            }
         }
 
         public ActionResult Checkout()
