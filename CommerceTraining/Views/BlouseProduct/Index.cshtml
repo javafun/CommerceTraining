@@ -1,0 +1,24 @@
+﻿
+@model CommerceTraining.Models.ViewModels.BlouseProductViewModel
+
+<div>
+    Code: @Html.PropertyFor(x => x.CurrentContent.Code)
+</div>
+
+<div>
+    Page Name: @Html.PropertyFor(x => x.CurrentPage.Name)
+</div>
+
+<ul>
+    @foreach (var item in Model.ProductVariations)
+    {
+        <li>Name : @item.DisplayName - Code : @item.Code</li>
+    }
+</ul>
+
+<div>
+
+    @Html.ContentLink(Model.CampaignLink)
+</div>
+
+

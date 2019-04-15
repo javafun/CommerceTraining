@@ -22,5 +22,6 @@ namespace CommerceTraining.Models.Blocks
         public virtual ContentReference catalogStartPageLink { get; set; }
 
         //public virtual bool InitializedOrNot { get; set; } wait with this
+
     }
 }
