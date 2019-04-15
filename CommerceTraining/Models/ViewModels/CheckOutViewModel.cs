@@ -25,6 +25,12 @@ namespace CommerceTraining.Models.Pages
             CurrentPage = currentPage;
         }
 
+        public IEnumerable<PaymentMethodDto.PaymentMethodRow> PaymentMethods { get; set; }
+        public IEnumerable<ShippingMethodDto.ShippingMethodRow> ShippingMethods{ get; set; }
+        public IEnumerable<ShippingRate> ShippingRates { get; set; }
+        public Guid SelectedPayId { get; set; }
+        public Guid SelectedShipId { get; set; }
+
 
     }
 }
