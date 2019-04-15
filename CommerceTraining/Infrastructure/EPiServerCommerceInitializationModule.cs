@@ -8,6 +8,7 @@ using EPiServer.ServiceLocation;
 namespace CommerceTraining.Infrastructure
 {
     [InitializableModule]
+    //[ModuleDependency(typeof(EPiServer.Web.InitializationModule))]
     [ModuleDependency(typeof(EPiServer.Commerce.Initialization.InitializationModule))]
     public class EPiServerCommerceInitializationModule : IConfigurableModule
     {
@@ -19,6 +20,7 @@ namespace CommerceTraining.Infrastructure
 
         public void Initialize(InitializationEngine context)
         {
+            //DependencyResolver.SetResolver(new ServiceLocatorDependencyResolver(context.Locate.Advanced));
             CatalogRouteHelper.MapDefaultHierarchialRouter(RouteTable.Routes, false);
         }
 
@@ -28,4 +30,22 @@ namespace CommerceTraining.Infrastructure
         {
         }
     }
+
+
+    //[InitializableModule]
+    //[ModuleDependency(typeof(EPiServer.Commerce.Initialization.InitializationModule))]
+    //public class EPiServerCommerceInitializationModule2 : IInitializableModule
+    //{
+    //    public void Initialize(InitializationEngine context)
+    //    {
+
+    //        CatalogRouteHelper.MapDefaultHierarchialRouter(RouteTable.Routes, false);
+    //    }
+
+    //    public void Preload(string[] parameters) { }
+
+    //    public void Uninitialize(InitializationEngine context)
+    //    {
+    //    }
+    //}
 }

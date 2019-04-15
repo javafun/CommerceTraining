@@ -368,6 +368,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\EPiServerCommerceInitializationModule.cs" />
+    <Compile Include="Infrastructure\ServiceLocatorDependencyResolver.cs" />
     <Compile Include="Infrastructure\StructureMapDependencyResolver.cs" />
     <Compile Include="Models\Blocks\IHasSettingsBlock.cs" />
     <Compile Include="Models\Blocks\SettingsBlock.cs" />
@@ -399,6 +400,7 @@
     <Folder Include="Business\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Global.asax" />
     <Content Include="Models\Catalog\_PlaceHolder.txt" />
     <Content Include="Models\Properties\_PlaceHolder.txt" />
     <Content Include="Static\css\bootstrap-collapse.js" />
@@ -413,7 +415,6 @@
     <Content Include="Static\js\bootstrap.js" />
     <Content Include="Static\js\jquery.js" />
     <Content Include="Views\Web.config" />
-    <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <Content Include="App_Data\GeoLiteCity.dat" />
     <Content Include="Configs\baf.config" />
