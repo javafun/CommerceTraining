@@ -1,0 +1,31 @@
+﻿@model CommerceTraining.Models.ViewModels.AdminViewModel
+
+<h2>Admin Page (For Demos)</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Content Reference (string)</th>
+            <th scope="col">Content Ref ID</th>
+            <th scope="col">Content Ref ID (binary)</th>
+            <th scope="col">Code</th>
+            <th scope="col">Table PK ID</th>
+            <th scope="col">Catalog Type</th>
+            <th scope="col">Root Reference</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model.Refs)
+        {
+            <tr>
+                <th scope="row">@item.Ref.ToString()</th>
+                <td>@item.Ref.ID</td>
+                <td>@System.Convert.ToString(item.Ref.ID, 2).PadLeft(32, '0')</td>
+                <td>@item.Code</td>
+                <td>@item.DbId</td>
+                <td>@item.CatalogType</td>
+                <td>@((item.RootRef == null) ? "Not Set" : item.RootRef.ToString())</td>
+            </tr>
+        }
+    </tbody>
+</table>
