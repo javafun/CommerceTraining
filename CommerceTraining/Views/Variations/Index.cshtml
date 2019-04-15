@@ -28,3 +28,27 @@
 <div>
     @Html.CheckBoxFor(m => m.CanBeMonogrammed) Can have a monogram
 </div>
+
+<div>
+    @using (Html.BeginForm("AddToCart", "Variations"))
+    {
+    <div>
+        Quantity: <input type="text" name="Quantity" value="1" />
+    </div>
+        <div>
+            Monogram: <input type="text" name="Monogram" />
+        </div>
+        <div>
+            <input type="submit" value="Add to cart" />
+        </div>
+    }
+</div>
+
+<div>
+    @using (Html.BeginForm("AddToWishList", "Variations"))
+    {
+        <div>
+            <input type="submit" value="Add to wishlist" />
+        </div>
+    }
+</div>
