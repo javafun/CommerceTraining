@@ -220,7 +220,7 @@ namespace CommerceTraining.Controllers
             ContentReference orderPageReference = home.Settings.orderPage;
 
             // the below is a dummy, change to "PO".OrderNumber when done
-            string passingValue = String.Empty;
+            string passingValue = purchaseOrder.OrderNumber;
 
             return RedirectToAction("Index", new { node = orderPageReference, passedAlong = passingValue });
         }
