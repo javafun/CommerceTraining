@@ -62,13 +62,52 @@ namespace CommerceTraining.Controllers
         // ToDo: Exercises in customers module
         public ActionResult CreateAccount(AccountPage currentPage, string userName, string passWord)
         {
+            var firstName = userName;
+            var lastName = userName;
+            string email = firstName + "." + lastName + "@epi.com";
+            
+            var user = Membership.CreateUser(email,passWord,email,null,null,true, out MembershipCreateStatus status);
+
+            // Create the Contact in ECF
+            var customerContact = CustomerContact.CreateInstance(user);
+            customerContact.FirstName = firstName;
+            customerContact.LastName = lastName;
+            customerContact.RegistrationSource = $"{this.Request.Url.Host},{SiteContext.Current}";
+
+            // customerContact["Email"] = email; 
+            customerContact.Email = email;
+
+            // Do the "SaveChanges()" before setting ECF-"Roles" 
+            customerContact.SaveChanges();
+
+
+            // These Roles are ECF specific ... saved automatically ... and obsolete in 9
+            //SecurityContext.Current.AssignUserToGlobalRole(membershipGuy, AppRoles.EveryoneRole); // For CM
+            //SecurityContext.Current.AssignUserToGlobalRole(membershipGuy, AppRoles.RegisteredRole); // For CM
+
+            Roles.AddUserToRole(user.UserName, AppRoles.EveryoneRole);
+            Roles.AddUserToRole(user.UserName, AppRoles.RegisteredRole);
+
+            // Call for further properties to be set
+            SetContactProperties(customerContact);
 
             return null; // for now
         }
 
         protected void SetContactProperties(CustomerContact contact)
         {
-  
+            Organization org = Organization.CreateInstance();
+            org.Name = "ParentOrg";
+            org.SaveChanges();
+
+            // Remember the EffectiveCustomerGroup!
+            contact.CustomerGroup = "MyBuddies";
+
+            // The custom field
+            contact["Geography"] = "West";
+            contact.OwnerId = org.PrimaryKeyId;
+
+            contact.SaveChanges();
         }
 
         public static void CreateAuthenticationCookie(HttpContextBase httpContext, string username, string domain, bool remember)

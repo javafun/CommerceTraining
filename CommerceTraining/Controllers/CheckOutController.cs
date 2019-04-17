@@ -69,11 +69,11 @@ namespace CommerceTraining.Controllers
             // Try to load the cart  
             var cart = _orderRepository.LoadOrCreateCart<ICart>(PrincipalInfo.CurrentPrincipal.GetContactId(), DefaultCart);
 
-            if(cart == null)
+            if (cart == null)
             {
                 throw new InvalidOperationException("No cart found");
             }
-            
+
 
             var model = new CheckOutViewModel(currentPage)
             {
@@ -99,7 +99,7 @@ namespace CommerceTraining.Controllers
         public IEnumerable<ShippingMethodDto.ShippingMethodRow> GetShipmentMethods()
         {
             return new List<ShippingMethodDto.ShippingMethodRow>(
-                ShippingManager.GetShippingMethodsByMarket(_currentMarket.GetCurrentMarket().MarketId.Value,false).ShippingMethod);
+                ShippingManager.GetShippingMethodsByMarket(_currentMarket.GetCurrentMarket().MarketId.Value, false).ShippingMethod);
         }
 
         public IEnumerable<ShippingRate> GetShippingRates()
@@ -122,7 +122,7 @@ namespace CommerceTraining.Controllers
             // ToDo: Load the cart
             var cart = _orderRepository.Load<ICart>(PrincipalInfo.CurrentPrincipal.GetContactId(), DefaultCart).FirstOrDefault();
 
-            if(cart == null)
+            if (cart == null)
             {
                 throw new InvalidOperationException("No cart found");
             }
@@ -145,18 +145,18 @@ namespace CommerceTraining.Controllers
             {
                 var validationIssues = new Dictionary<ILineItem, ValidationIssue>();
 
-                _inventoryProcessor.AdjustInventoryOrRemoveLineItem(cart.GetFirstShipment(), OrderStatus.InProgress, 
+                _inventoryProcessor.AdjustInventoryOrRemoveLineItem(cart.GetFirstShipment(), OrderStatus.InProgress,
                     (item, issue) =>
                   {
                       validationIssues.Add(item, issue);
                   });
 
-                if(validationIssues.Count >= 1)
+                if (validationIssues.Count >= 1)
                 {
                     throw new Exception("Not possible right now.");
                 }
 
-                IEnumerable<PaymentProcessingResult> paymentProcessingResults =cart.ProcessPayments();
+                IEnumerable<PaymentProcessingResult> paymentProcessingResults = cart.ProcessPayments();
 
                 var cartTotal = cart.GetTotal();
                 var handling = cart.GetHandlingTotal();
@@ -167,11 +167,11 @@ namespace CommerceTraining.Controllers
                     .Where(x => x.Status.Equals(PaymentStatus.Processed.ToString()))
                     .Sum(x => x.Amount);
 
-                if(totalProcessAmount != cart.GetTotal(_orderGroupCalculator).Amount)
+                if (totalProcessAmount != cart.GetTotal(_orderGroupCalculator).Amount)
                 {
                     _inventoryProcessor.AdjustInventoryOrRemoveLineItem(
-                        cart.GetFirstShipment(), 
-                        OrderStatus.Cancelled, 
+                        cart.GetFirstShipment(),
+                        OrderStatus.Cancelled,
                         (item, issue) => validationIssues.Add(item, issue));
 
                     throw new InvalidOperationException("Wrong amount");
@@ -291,7 +291,7 @@ namespace CommerceTraining.Controllers
             {
                 var shipment = cart.GetFirstShipment();
 
-                if(shipment == null)
+                if (shipment == null)
                 {
 
                 }
@@ -305,7 +305,37 @@ namespace CommerceTraining.Controllers
             }
             else
             {
+                if (CustomerContext.Current.CurrentContact.PreferredShippingAddress == null)
+                {
+                    CustomerAddress newCustomerAddress = CustomerAddress.CreateForApplication();
 
+                    newCustomerAddress.AddressType = CustomerAddressTypeEnum.Shipping;
+                    newCustomerAddress.ContactId = CustomerContext.Current.CurrentContact.PrimaryKeyId;
+                    newCustomerAddress.CountryCode = "SWE";
+                    newCustomerAddress.CountryName = "Sweden";
+                    newCustomerAddress.Name = "new customer address"; // mandatory
+                    newCustomerAddress.DaytimePhoneNumber = "123456";
+                    newCustomerAddress.FirstName = CustomerContext.Current.CurrentContact.FirstName;
+                    newCustomerAddress.LastName = CustomerContext.Current.CurrentContact.LastName;
+                    newCustomerAddress.Email = "ABC@test.com";
+
+                    // note: Line1 & City is what is shown in CM at a few places... not the Name
+                    CustomerContext.Current.CurrentContact.AddContactAddress(newCustomerAddress);
+                    CustomerContext.Current.CurrentContact.SaveChanges();
+
+                    // ... needs to be in this order
+                    CustomerContext.Current.CurrentContact.PreferredShippingAddress = newCustomerAddress;
+                    CustomerContext.Current.CurrentContact.SaveChanges();
+
+                    // then, for the cart
+                    //.Cart.OrderAddresses.Add(new OrderAddress(newCustAddress)); - OLD
+                    shippingAddress = new OrderAddress(newCustomerAddress); // - NEW
+
+                }
+                else
+                {
+                    shippingAddress = new OrderAddress(CustomerContext.Current.CurrentContact.PreferredShippingAddress);
+                }
             }
 
             return shippingAddress;
