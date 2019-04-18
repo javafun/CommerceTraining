@@ -1,4 +1,5 @@
-﻿using EPiServer.Core;
+﻿using EPiServer.Commerce.SpecializedProperties;
+using EPiServer.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,5 +16,8 @@ namespace CommerceTraining.Models.ViewModels
         public string url { get; set; }
         public bool CanBeMonogrammed { get; set; }
         public XhtmlString MainBody { get; set; }
+
+        public string PromoString { get; set; }
+        public decimal DiscountPrice { get; set; }
     }
 }

@@ -9,7 +9,7 @@
 
 
 <div>
-    @Html.PropertyFor(m=>m.name)
+    @Html.PropertyFor(m => m.name)
 </div>
 
 <div>
@@ -19,11 +19,19 @@
 <div>
     <img src="@Model.image">
 </div>
-
+<br />
+<div>
+    @Model.PromoString
+</div>
 
 <div>
     <strong>Default Price: </strong> @Html.PropertyFor(m => m.priceString)
 </div>
+
+<div>
+    <strong>Discount Saved Money: </strong> @Html.PropertyFor(m => m.DiscountPrice)
+</div>
+
 
 <div>
     @Html.CheckBoxFor(m => m.CanBeMonogrammed) Can have a monogram
@@ -32,9 +40,9 @@
 <div>
     @using (Html.BeginForm("AddToCart", "Variations"))
     {
-    <div>
-        Quantity: <input type="text" name="Quantity" value="1" />
-    </div>
+        <div>
+            Quantity: <input type="text" name="Quantity" value="1" />
+        </div>
         <div>
             Monogram: <input type="text" name="Monogram" />
         </div>
