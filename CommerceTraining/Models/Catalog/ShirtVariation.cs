@@ -31,6 +31,6 @@ namespace CommerceTraining.Models.Catalog
         [IncludeInDefaultSearch]
         [IncludeValuesInSearchResults]
         public virtual string ThematicTag { get; set; }
-
+        public virtual string testc { get; set; }
     }
 }

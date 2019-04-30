@@ -1,4 +1,5 @@
-﻿using EPiServer.Core;
+﻿using EPiServer.Commerce.SpecializedProperties;
+using EPiServer.Core;
 using EPiServer.ServiceLocation;
 using Mediachase.Commerce;
 using Mediachase.Commerce.Catalog;
@@ -84,6 +85,12 @@ namespace CommerceManager
                                         $"The color {color} was added to the index for {entry.Name}.", 1));
 
                                 }
+
+                                // Commerce dictionary type 
+
+                                //PropertyDictionarySingle
+                                //PropertyDictionaryMultiple
+                                //PropertyStringDictionary
                             }
 
                         }
