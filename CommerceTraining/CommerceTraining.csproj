@@ -367,6 +367,7 @@
     </Compile>
     <Compile Include="Infrastructure\AssociationTypeInitialization.cs" />
     <Compile Include="Infrastructure\EPiServerCommerceInitializationModule.cs" />
+    <Compile Include="Infrastructure\EventsDemoInitializationModule.cs" />
     <Compile Include="Infrastructure\Pricing\MyPriceCalculator.cs" />
     <Compile Include="Infrastructure\ServiceLocatorDependencyResolver.cs" />
     <Compile Include="Infrastructure\StructureMapDependencyResolver.cs" />
