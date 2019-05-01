@@ -365,6 +365,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\AssociationTypeInitialization.cs" />
     <Compile Include="Infrastructure\EPiServerCommerceInitializationModule.cs" />
     <Compile Include="Infrastructure\Pricing\MyPriceCalculator.cs" />
     <Compile Include="Infrastructure\ServiceLocatorDependencyResolver.cs" />

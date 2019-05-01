@@ -1,5 +1,6 @@
 using System.Web.Mvc;
 using System.Web.Routing;
+using EPiServer.Commerce.Catalog.Linking;
 using EPiServer.Commerce.Routing;
 using EPiServer.Framework;
 using EPiServer.Framework.Initialization;
