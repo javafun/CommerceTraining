@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Machine.Specifications.Runner.VisualStudio.2.8.1\build\net46\Machine.Specifications.Runner.VisualStudio.props" Condition="Exists('..\packages\Machine.Specifications.Runner.VisualStudio.2.8.1\build\net46\Machine.Specifications.Runner.VisualStudio.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -26,6 +27,8 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -236,6 +239,18 @@
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
+    <Reference Include="Mono.Cecil, Version=0.10.0.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mono.Cecil.0.10.0\lib\net40\Mono.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Mdb, Version=0.10.0.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mono.Cecil.0.10.0\lib\net40\Mono.Cecil.Mdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Pdb, Version=0.10.0.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mono.Cecil.0.10.0\lib\net40\Mono.Cecil.Pdb.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil.Rocks, Version=0.10.0.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mono.Cecil.0.10.0\lib\net40\Mono.Cecil.Rocks.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -357,6 +372,7 @@
     <Compile Include="Controllers\CatalogControllerBase.cs" />
     <Compile Include="Controllers\CheckOutController.cs" />
     <Compile Include="Controllers\FashionNodeController.cs" />
+    <Compile Include="Controllers\MarketsDemoController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
@@ -366,6 +382,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\AssociationTypeInitialization.cs" />
+    <Compile Include="Infrastructure\DemoCurrentMarket.cs" />
+    <Compile Include="Infrastructure\DemoCurrentMarketRegistration.cs" />
     <Compile Include="Infrastructure\EPiServerCommerceInitializationModule.cs" />
     <Compile Include="Infrastructure\EventsDemoInitializationModule.cs" />
     <Compile Include="Infrastructure\Pricing\MyPriceCalculator.cs" />
@@ -394,6 +412,7 @@
     <Compile Include="Models\ViewModels\CartViewModel.cs" />
     <Compile Include="Models\ViewModels\CatalogViewModel.cs" />
     <Compile Include="Models\ViewModels\CheckOutViewModel.cs" />
+    <Compile Include="Models\ViewModels\DemoMarketsViewModel.cs" />
     <Compile Include="Models\ViewModels\OrderViewModel.cs" />
     <Compile Include="Models\ViewModels\PageViewModel.cs" />
     <Compile Include="Models\ViewModels\SearchPageViewModel.cs" />
@@ -466,6 +485,7 @@
     <Content Include="Views\Variations\Index.cshtml" />
     <Content Include="Views\AdminPage\Index.cshtml" />
     <Content Include="Views\BlouseProduct\Index.cshtml" />
+    <Content Include="Views\MarketsDemo\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -491,6 +511,12 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Machine.Specifications.Runner.VisualStudio.2.8.1\build\net46\Machine.Specifications.Runner.VisualStudio.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Machine.Specifications.Runner.VisualStudio.2.8.1\build\net46\Machine.Specifications.Runner.VisualStudio.props'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
