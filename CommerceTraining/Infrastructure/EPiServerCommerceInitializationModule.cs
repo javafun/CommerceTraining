@@ -1,10 +1,12 @@
 using System.Web.Mvc;
 using System.Web.Routing;
+using CommerceTraining.Infrastructure.Pricing;
 using EPiServer.Commerce.Catalog.Linking;
 using EPiServer.Commerce.Routing;
 using EPiServer.Framework;
 using EPiServer.Framework.Initialization;
 using EPiServer.ServiceLocation;
+using Mediachase.Commerce.Pricing;
 
 namespace CommerceTraining.Infrastructure
 {
@@ -17,6 +19,8 @@ namespace CommerceTraining.Infrastructure
         {
             DependencyResolver.SetResolver(
                 new StructureMapDependencyResolver(context.StructureMap()));
+
+            context.Services.AddSingleton<IPriceOptimizer, DemoPriceOptimizer>();
         }
 
         public void Initialize(InitializationEngine context)
