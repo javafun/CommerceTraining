@@ -372,12 +372,14 @@
     <Compile Include="Controllers\CatalogControllerBase.cs" />
     <Compile Include="Controllers\CheckOutController.cs" />
     <Compile Include="Controllers\FashionNodeController.cs" />
+    <Compile Include="Controllers\InventoryDemoController.cs" />
     <Compile Include="Controllers\MarketsDemoController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\StartPageController.cs" />
     <Compile Include="Controllers\VariationsController.cs" />
+    <Compile Include="Controllers\WareHouseDemoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -416,11 +418,13 @@
     <Compile Include="Models\ViewModels\CatalogViewModel.cs" />
     <Compile Include="Models\ViewModels\CheckOutViewModel.cs" />
     <Compile Include="Models\ViewModels\DemoMarketsViewModel.cs" />
+    <Compile Include="Models\ViewModels\InventoryDemoViewModel.cs" />
     <Compile Include="Models\ViewModels\OrderViewModel.cs" />
     <Compile Include="Models\ViewModels\PageViewModel.cs" />
     <Compile Include="Models\ViewModels\SearchPageViewModel.cs" />
     <Compile Include="Models\ViewModels\SearchResultViewModel.cs" />
     <Compile Include="Models\ViewModels\ShirtVariationViewModel.cs" />
+    <Compile Include="Models\ViewModels\WarehouseDemoViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SupportingClasses\NameAndUrls.cs" />
     <Compile Include="SupportingClasses\NodeEntryCombo.cs" />
@@ -489,6 +493,8 @@
     <Content Include="Views\AdminPage\Index.cshtml" />
     <Content Include="Views\BlouseProduct\Index.cshtml" />
     <Content Include="Views\MarketsDemo\Index.cshtml" />
+    <Content Include="Views\InventoryDemo\Index.cshtml" />
+    <Content Include="Views\WareHouseDemo\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
