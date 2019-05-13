@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommerceManager", "Commerce
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommerceTraining.Tests", "CommerceTraining.Tests\CommerceTraining.Tests.csproj", "{871D4D59-C5DE-4C65-9E71-CCAD1BA8450F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomBFHandler", "CustomBFHandler\CustomBFHandler.csproj", "{DEA7D96B-F685-48AF-BA5D-0649508C1BCD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{871D4D59-C5DE-4C65-9E71-CCAD1BA8450F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{871D4D59-C5DE-4C65-9E71-CCAD1BA8450F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{871D4D59-C5DE-4C65-9E71-CCAD1BA8450F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEA7D96B-F685-48AF-BA5D-0649508C1BCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEA7D96B-F685-48AF-BA5D-0649508C1BCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEA7D96B-F685-48AF-BA5D-0649508C1BCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEA7D96B-F685-48AF-BA5D-0649508C1BCD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
