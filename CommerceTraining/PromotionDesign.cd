@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="EPiServer.Commerce.Marketing.PromotionEngine">
+    <Position X="1.5" Y="3.25" Width="3" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="EPiServer.Commerce.Marketing.RedemptionDescription">
+    <Position X="5.75" Y="0.5" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="EPiServer.Commerce.Marketing.RedemptionDescriptionFactory">
+    <Position X="8" Y="0.5" Width="2.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="EPiServer.Commerce.Marketing.SalesCampaign">
+    <Position X="1.25" Y="5.75" Width="1.75" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="EPiServer.Commerce.Marketing.PromotionData">
+    <Position X="6.25" Y="3.5" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="EPiServer.Commerce.Marketing.OrderPromotion">
+    <Position X="4" Y="7.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="EPiServer.Commerce.Marketing.EntryPromotion">
+    <Position X="6.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="EPiServer.Commerce.Marketing.ShippingPromotion">
+    <Position X="9" Y="7.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="EPiServer.Commerce.Marketing.PromotionProcessorContext">
+    <Position X="9" Y="3.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="EPiServer.Commerce.Marketing.Promotions.BuyQuantityGetMostExpensiveFreeProcessor">
+    <Position X="16.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="EPiServer.Commerce.Marketing.Promotions.GetFreeItemsProcessorBase&lt;TEntryPromotion&gt;">
+    <Position X="14.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="EPiServer.Commerce.Marketing.EntryPromotionProcessorBase&lt;TEntryPromotion&gt;">
+    <Position X="15" Y="4.25" Width="3" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="EPiServer.Commerce.Marketing.OrderPromotionProcessorBase&lt;TOrderPromotion&gt;">
+    <Position X="11" Y="4.5" Width="3.25" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="EPiServer.Commerce.Marketing.PromotionProcessorBase&lt;TPromotionData&gt;">
+    <Position X="15.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="EPiServer.Commerce.Marketing.FreeShippingPromotionProcessorBase&lt;TFreeShippingPromotion&gt;">
+    <Position X="21.5" Y="4.75" Width="4" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="EPiServer.Commerce.Marketing.ShippingPromotionProcessorBase&lt;TShippingPromotion&gt;">
+    <Position X="19" Y="4.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="EPiServer.Commerce.Marketing.PromotionTypeHandler">
+    <Position X="11" Y="7" Width="2.75" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="EPiServer.Commerce.Marketing.Promotions.PurchaseQuantity">
+    <Position X="11.75" Y="10.5" Width="1.75" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="EPiServer.Commerce.Marketing.Promotions.ConditionBlock" Collapsed="true">
+    <Position X="15.25" Y="9" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="EPiServer.Commerce.Marketing.Promotions.FixedPricePurchaseQuantity">
+    <Position X="14.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="EPiServer.Commerce.Marketing.Promotions.PurchaseAmount">
+    <Position X="17.5" Y="10.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="EPiServer.Commerce.Marketing.Promotions.DiscountItems">
+    <Position X="19.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="EPiServer.Commerce.Marketing.EntryFilterSettings">
+    <Position X="21.5" Y="7.5" Width="1.75" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="EPiServer.Commerce.Marketing.PromotionApplicator">
+    <Position X="21" Y="1.75" Width="2.25" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="EPiServer.Commerce.Marketing.RedemptionLimitService">
+    <Position X="10.75" Y="1.75" Width="3" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="EPiServer.Commerce.Marketing.IPromotionEngine">
+    <Position X="1.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="EPiServer.Commerce.Marketing.IPromotionProcessor">
+    <Position X="18" Y="0.5" Width="1.75" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="EPiServer.Commerce.Marketing.IRedemptionLimitService">
+    <Position X="13.25" Y="0.5" Width="2.25" />
+    <TypeIdentifier />
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

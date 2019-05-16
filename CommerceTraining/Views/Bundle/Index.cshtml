@@ -1,0 +1,63 @@
+﻿
+
+
+@model CommerceTraining.Models.ViewModels.BundleViewModel
+
+<div>
+    Bundle Page
+</div>
+
+
+<div>
+    @Html.PropertyFor(m => m.name)
+</div>
+
+<div>
+    @Html.PropertyFor(m => m.MainBody)
+</div>
+
+<div>
+    <img src="@Model.image">
+</div>
+<br />
+
+
+<div>
+    <strong>Default Price: </strong> @Html.PropertyFor(m => m.priceString)
+</div>
+
+
+<div>
+    Items
+</div>
+
+<ul>
+    @foreach(var item in Model.Items)
+    {
+        <li><a href="@item.url">@item.name</a></li>
+    }
+</ul>
+
+<div>
+    @using (Html.BeginForm("AddToCart", "Variations"))
+    {
+        <div>
+            Quantity: <input type="text" name="Quantity" value="1" />
+        </div>
+        <div>
+            Monogram: <input type="text" name="Monogram" />
+        </div>
+        <div>
+            <input type="submit" value="Add to cart" />
+        </div>
+    }
+</div>
+
+<div>
+    @using (Html.BeginForm("AddToWishList", "Variations"))
+    {
+        <div>
+            <input type="submit" value="Add to wishlist" />
+        </div>
+    }
+</div>

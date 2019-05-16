@@ -84,6 +84,7 @@ namespace CommerceTraining.Controllers
             GetPriceInfo(viewModel);
 
             return View("Index", viewModel);
+            
         }
 
         private void GetTaxInfo(DemoMarketsViewModel viewModel)
@@ -129,7 +130,7 @@ namespace CommerceTraining.Controllers
             viewModel.OptimizedPrices = _priceService.GetPrices(viewModel.SelectedMarket.MarketId,
                 DateTime.Now, new CatalogKey(viewModel.Shirt.Code), filter);
 
-            filter.Quantity = 1;
+            filter.Quantity = 3;
             var custPricing = new List<CustomerPricing>
             { new CustomerPricing(CustomerPricing.PriceType.AllCustomers, string.Empty) };
 

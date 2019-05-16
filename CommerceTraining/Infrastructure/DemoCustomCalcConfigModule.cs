@@ -20,6 +20,7 @@ namespace CommerceTraining.Infrastructure
         {
             context.Services.Intercept<ITaxCalculator>(
                 (_, defaultTaxCalculator) => new DemoCustomTaxCalc(defaultTaxCalculator));
+
         }
 
         public void Initialize(InitializationEngine context)
