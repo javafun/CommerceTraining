@@ -14,6 +14,13 @@ using System.Web.Mvc;
 
 namespace CommerceTraining.Controllers
 {
+    /// <summary>
+    /// Bundle example 
+    /// </summary>
+    /// <remarks>
+    /// More Apis can be found in the following links
+    /// https://world.episerver.com/documentation/developer-guides/commerce/catalogs/catalog-content/Bundles-and-packages/
+    /// </remarks>
     public class BundleController : CatalogControllerBase<ShirtBundle>
     {
         private readonly IRelationRepository _relationRepository;
@@ -41,6 +48,10 @@ namespace CommerceTraining.Controllers
 
 
             var childItems = _relationRepository.GetChildren<BundleEntry>(currentContent.ContentLink);
+
+            // Alternative way to get the entry links from bundle 
+            // https://world.episerver.com/documentation/developer-guides/commerce/catalogs/catalog-content/Bundles-and-packages/
+            // currentContent.GetEntries();
 
             Money total = new Money(0,_currentMarket.GetCurrentMarket().DefaultCurrency);
 

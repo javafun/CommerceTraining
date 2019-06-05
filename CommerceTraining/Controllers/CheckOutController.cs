@@ -7,6 +7,7 @@ using EPiServer.Security;
 using EPiServer.ServiceLocation;
 using EPiServer.Web.Mvc;
 using Mediachase.Commerce;
+using Mediachase.Commerce.Catalog.Events;
 using Mediachase.Commerce.Customers;
 using Mediachase.Commerce.Orders;
 using Mediachase.Commerce.Orders.Dto;
@@ -20,7 +21,7 @@ using System.Transactions;
 using System.Web.Mvc;
 
 namespace CommerceTraining.Controllers
-{
+{    
     public class CheckOutController : PageController<CheckOutPage>
     {
 
